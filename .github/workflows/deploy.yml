@@ -61,7 +61,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          cd /path/to/project
+          cd ~/project
           git pull origin master
           docker-compose down
           docker-compose pull
