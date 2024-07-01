@@ -38,6 +38,7 @@ jobs:
 
     - name: Build backend
       run: |
+        cd backend
         ./gradlew build
 
     - name: Set up Docker Buildx
