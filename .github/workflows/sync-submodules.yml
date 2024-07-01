@@ -3,7 +3,7 @@ name: Sync Submodules
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - backend/**
       - frontend/**
