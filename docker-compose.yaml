@@ -6,7 +6,7 @@ services:
     container_name: mongodb
 
   backend:
-    image: ioloolo/cicd-practice-backend:1.0.0
+    image: ioloolo/cicd-practice-backend:latest
     build: backend
     container_name: backend
     depends_on:
@@ -15,12 +15,12 @@ services:
       - mongodb
 
   frontend:
-    image: ioloolo/cicd-practice-frontend:1.0.0
+    image: ioloolo/cicd-practice-frontend:latest
     build: frontend
     container_name: frontend
 
   web:
-    image: ioloolo/cicd-practice-web:1.0.0
+    image: ioloolo/cicd-practice-web:latest
     build: web
     container_name: web
     depends_on:
