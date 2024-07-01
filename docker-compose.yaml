@@ -19,6 +19,9 @@ services:
       - mongodb
     networks:
       - cicd-practice
+    platforms:
+      - "linux/amd64"
+      - "linux/arm64"
 
   frontend:
     image: ioloolo/cicd-practice-frontend:latest
@@ -26,6 +29,9 @@ services:
     container_name: frontend
     networks:
       - cicd-practice
+    platforms:
+      - "linux/amd64"
+      - "linux/arm64"
 
   web:
     image: ioloolo/cicd-practice-web:latest
@@ -41,6 +47,9 @@ services:
       - cicd-practice
     ports:
       - "80:80"
+    platforms:
+      - "linux/amd64"
+      - "linux/arm64"
 
 volumes:
   mongodb_data:
