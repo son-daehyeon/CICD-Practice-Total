@@ -4,6 +4,10 @@ services:
   mongodb:
     image: mongodb/mongodb-community-server:latest
     container_name: mongodb
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - cicd-practice
 
   backend:
     image: ioloolo/cicd-practice-backend:latest
@@ -13,11 +17,15 @@ services:
       - mongodb
     links:
       - mongodb
+    networks:
+      - cicd-practice
 
   frontend:
     image: ioloolo/cicd-practice-frontend:latest
     build: frontend
     container_name: frontend
+    networks:
+      - cicd-practice
 
   web:
     image: ioloolo/cicd-practice-web:latest
@@ -29,5 +37,13 @@ services:
     links:
       - frontend
       - backend
+    networks:
+      - cicd-practice
     ports:
       - "80:80"
+
+volumes:
+  mongodb_data:
+
+networks:
+  cicd-practice:
