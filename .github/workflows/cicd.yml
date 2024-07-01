@@ -60,7 +60,8 @@ jobs:
     - name: Build and push Docker images
       run: |
         docker-compose build
-        docker-compose push
+        docker image ls
+        # docker-compose push
 
     - name: SSH into server and deploy
       uses: appleboy/ssh-action@v1.0.3
