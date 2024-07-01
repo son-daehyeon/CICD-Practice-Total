@@ -41,6 +41,27 @@ jobs:
         cd backend
         ./gradlew build
 
+    - name: Update apt package list
+      run: sudo apt-get update
+
+    - name: Install dependencies
+      run: sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+    - name: Add Docker's official GPG key
+      run: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    - name: Set up Docker repository
+      run: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+    - name: Update apt package list again
+      run: sudo apt-get update
+
+    - name: Install Docker Engine
+      run: sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+    - name: Verify Docker installation
+      run: docker --version
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
       
