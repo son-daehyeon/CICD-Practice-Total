@@ -111,9 +111,10 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
+          zsh
           printenv PATH
           cd ~/project
           git pull
-          /usr/local/bin/docker-compose pull
-          /usr/local/bin/docker-compose down
-          /usr/local/bin/docker-compose up -d
+          docker-compose pull
+          docker-compose down
+          docker-compose up -d
