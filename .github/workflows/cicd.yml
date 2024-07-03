@@ -111,8 +111,7 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          zsh
-          printenv PATH
+          PATH=$PATH:/usr/local/bin/
           cd ~/project
           git pull
           docker-compose pull
